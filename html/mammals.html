@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZooParc- Mammals & Fishes</title>
+    <link rel="icon" type="image/x-icon" href="">
+    <link rel="stylesheet" href="..\html\home.css">
+    <link rel="stylesheet" href="..\html\home.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        #mammal
+    h1 {
+        margin-bottom: 20px;
+        margin-top: 70px;
+        font-family:"Josefin Sans", sans-serif;
+    font-style: bold;
+    text-align:  center;
+    font-size: 25px;
+    
+    }
+        
+    .mam {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+    
+    .mam-item {
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .mam-item img {
+       
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    
+    .mam-item p {
+        margin-top: 10px;
+        font-size: 18px;
+        color: #333;
+    }
+    /* For devices with a max-width of 1024px */
+    @media (max-width: 1024px) {
+        .mam {
+            justify-content: space-around;
+        }
+    
+        .mam-item {
+            margin: 10px;
+        }
+    
+        .mam-item img {
+            max-width: 180px;
+        }
+    
+        .mam-item p {
+            font-size: 16px;
+        }
+    }
+    
+    /* For devices with a max-width of 768px */
+    @media (max-width: 768px) {
+        .mam {
+            justify-content: center;
+        }
+    
+        .mam-item {
+            margin: 10px;
+        }
+    
+        .mam-item img {
+            max-width: 150px;
+        }
+    
+        .mam-item p {
+            font-size: 16px;
+        }
+    }
+    
+    /* For devices with a max-width of 480px */
+    @media (max-width: 480px) {
+        .mam {
+            flex-direction: column;
+            align-items: center;
+        }
+    
+        .mam-item {
+            margin: 10px 0;
+        }
+    
+        .mam-item img {
+            max-width: 100%;
+            width: 90%;
+        }
+    
+        .mam-item p {
+            font-size: 14px;
+        }
+    }
+    
+    
+    </style>
+</head>
+<body>
+
+    
+    <header>
+        <nav>
+              <div class="logo">ZooParc Adventures</div>
+              <div class="toggle_menu">
+                <i class='bx bxs-grid-alt'></i>
+              </div>
+              <ul class="nav_list">
+                <div class="close_menu">
+                    <i class='bx bx-x'></i>
+                </div>
+                <li class="nav_item "dropdown ><a href="..\html\home.html" class="nav_link dropdown_link">Home <i class='bx bxs-chevron-down dropdown_icon'></i></a>
+                  <div class="megamenu">
+                    <ul class="content">
+                        <li class="megamenu_items header_megamenu">Visit</li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\zoomap.html">zoo map</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\tickects.html">hours and tickects</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\food.html">food and shops</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\visit.html">plan to visit</a>
+                                <p></p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="content">
+                        <li class="megamenu_items header_megamenu">Animals</li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\php\animals.php">Gallery</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\mammals.html">Mammals & fishes</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\reptlies.html">amphibious & reptelious</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\birds.html">birds</a>
+                                <p></p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="content">
+                        <li class="megamenu_items header_megamenu">Education & Events</li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\php\programs.php">Educational Programs</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\php\events.php">Events</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                    <ul class="content">
+                        <li class="megamenu_items header_megamenu"> Support</li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\volunteer.html">Volunteer</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\member.html">Member</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\donation.html">Donate</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\php\register.php">Register</a>
+                                <p></p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                  </div>
+                </li>
+                <li class="nav_item"><a href="..\php\register.php" class="nav_link ">Register</a></li>
+                <li class="nav_item"><a href="..\html\donation.html" class="nav_link">Donate</a></li>
+                <li class="nav_item"><a href="..\php\login.php" class="nav_link">Login</a></li>
+                <li class="nav_item"><a href="..\html\visit.html" class="nav_link">Plan to visit</a></li>
+              </ul>
+        </nav>
+    </header>  
+         
+
+    <section id="mammal">
+        <h1>Mammals & Fishes</h1>
+   
+    <div class="mam">
+        <div class="mam-item">
+            <img src="..\img\mam1.png" alt="Monkey" width="300" height="300">
+            <p>Monkey</p>
+        </div>
+        <div class="mam-item">
+            <img src="..\img\mam2.png" alt="Tiger" width="300" height="300">
+            <p>Tiger</p>
+        </div>
+        <div class="mam-item">
+            <img src="..\img\mam3.png" alt="Antelope" width="300" height="300">
+            <p>Antelope</p>
+        </div>
+        <div class="mam-item">
+            <img src="..\img\mam4.png" alt="Koala Bear" width="300" height="300">
+            <p>Koala Bear</p>
+        </div><div class="mam-item">
+            <img src="..\img\mam5.png" alt="Kangaroo" width="300" height="300">
+            <p>Kangaroo</p>
+        </div>
+        <div class="mam-item">
+        <img src="..\img\mam6.png" alt="Rhinoceros" width="300" height="300">
+        <p>Rhinoceros</p>
+        </div><div class="mam-item">
+            <img src="..\img\mam7.png" alt="Hippopotamus" width="300" height="300">
+            <p>Hippopotamus</p>
+        </div>
+
+        <div class="mam-item">
+            <img src="..\img\mam8.png" alt="Deer" width="300" height="300">
+            <p>Deer</p>
+        </div>
+        <div class="mam-item">
+            <img src="..\img\mam9.png" alt="Giraffe" width="300" height="300">
+            <p>Giraffe</p>
+        </div>
+        <div class="mam-item">
+            <img src="..\img\fish1.png" alt="Coral Fish" width="300" height="300">
+            <p>Coral Fish</p>
+        </div>
+        <div class="mam-item">
+            <img src="..\img\fish2.png" alt="Mantaray" width="300" height="300">
+            <p>Mantaray</p>
+        </div>
+        <div class="mam-item">
+            <img src="..\img\fish3.png" alt="Shark" width="300" height="300">
+            <p>Shark</p>
+        </div>
+        
+        <div class="mam-item">
+            <img src="..\img\fish4.png" alt="Sea lion" width="300" height="300">
+            <p>Sea lion</p>
+        </div>
+        
+        <div class="mam-item">
+            <img src="..\img\fish5.png" alt="Sea horse" width="300" height="300">
+            <p>Sea horse</p>
+        </div>
+        
+        <div class="mam-item">
+            <img src="..\img\fish6.png" alt="Grouper" width="300" height="300">
+            <p>Grouper</p>
+        </div>
+        
+        
+
+    </div>
+</section>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+               
+                <h2>  <i class="fas fa-paw"></i> ZooParc Adventures</h2>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Access</h3>
+                <ul>
+                    <li><a href="..\php\animals.php">Animals</a></li>
+                    <li><a href="..\html\volunteer.html">Volunteer</a></li>
+                    <li><a href="..\php\events.php">Events</a></li>
+                    <li><a href="..\html\food.html">Food Outlets</a></li>
+                    <li><a href="..\html\donation.html">Donations</a></li>
+                    <li><a href="..\html\visit.html">Visit</a></li>
+                    <li><a href="..\php\register.php">Register</a></li>
+                    <li><a href="..\php\programs.php">Educational programs</a></li>
+                    <li><a href="..\html\volunteer.html">Our Online Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#follow" target="_blank" class="social-icon">
+                    <i class='bx bxl-facebook-square'></i>
+                </a>
+                <a href="#follow" target="_blank" class="social-icon">
+                    <i class='bx bxl-twitter'></i>
+                </a>
+                <a href="#follow" target="_blank" class="social-icon">
+                    <i class='bx bxl-instagram-alt'></i>
+                </a>
+                <a href="#follow" target="_blank" class="social-icon">
+                    <i class='bx bxl-linkedin-square'></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ZooParc Adventures. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

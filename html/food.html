@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZooParc- Food Outlets</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   <style>
+   @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Josefin Sans", sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    background-color: rgb(238, 248, 248);
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: #000;
+    z-index: 1000;
+    border-radius: 2px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    height: 4rem;
+    padding: 0 1rem;
+    margin: 0 auto;
+    border-radius: 2px;
+   
+  
+}
+
+.logo {
+    font-weight: 1000;
+    font-size:40px;
+    font-style: bold;
+    color: #fff;
+    margin-top: 20px;
+
+}
+
+.nav_list {
+    display: flex;
+    color:floralwhite;
+   
+}
+
+.nav_item {
+    position: relative; 
+    margin: 0 1.5rem;
+    padding: 1.4rem 0;
+    color: #fff;
+    
+}
+
+.nav_link {
+    font-weight: 1000;
+    font-family: "Josefin Sans", sans-serif;
+    border-radius: 2px;
+    font-size: medium;
+    color: #eae9ee;
+    font-size: 15px;
+    
+}
+.nav_link a{
+    
+        font-weight: 1000;
+        font-family: "Josefin Sans", sans-serif;
+        border-radius: 2px;
+        font-size: medium;
+        color: #eae9ee;
+         margin-top: 10px;
+    
+}
+
+.nav_link:hover {
+        color: #3f24ac;
+    }
+    
+
+.dropdown_link {
+    display: flex;
+    align-items: center;
+  
+}
+
+.dropdown_icon {
+    font-size: 1rem;
+}
+
+.megamenu {
+    position: absolute;
+    width: 450px;
+    height: 200px;
+    top: 6rem;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 23px -21px rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    background-color:rgb(252, 252, 255);
+    z-index: 999;
+    
+}
+
+.nav_item:hover .megamenu {
+    opacity: 1;
+    visibility: visible;
+    border-radius: 0 0 20px 20px;
+
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: rgb(252, 252, 255);
+    border-radius: 0 0 20px 20px;
+   
+     
+    
+}
+
+.megamenu_item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.header_megamenu {
+    font-weight: 800;
+    color: rgb(190, 93, 125);
+    margin-bottom: 1rem;
+   
+    
+}
+
+.megamenu_links a {
+    font-weight: 700;
+    color: rgb(12, 13, 119);
+    margin-top: 10px;
+   
+}
+
+.megamenu_links a:hover {
+    color: rgb(60, 132, 173);
+    text-decoration: underline;
+}
+
+.nav_item:hover .dropdown_icon {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.toggle_menu, .close_menu {
+        display: none;
+    }
+
+
+h1 {
+    color: #24cfc7;
+    padding: 10px;
+}
+h2{
+    color: #000;
+    padding: 10px;
+    font-size: 19px;
+}
+p{
+    color: #000;
+    padding-bottom: 10px;
+    font-size: 17px;
+   
+
+}
+h4{
+    color: #87ee79;
+    font-size: 15px;
+}
+.container, section {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+.outlet-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.outlet-card img {
+    width: 200px;
+    height: 150px;
+    border-radius: 10px;
+    margin-right: 20px;
+    object-fit: cover;
+}
+
+.outlet-details {
+    flex: 1;
+}
+
+.outlet-details h3 {
+    margin-top: 0;
+    color: #4CAF50;
+    font-size: 16px;
+
+}
+
+.outlet-details p {
+    margin: 5px 0;
+    color: #333;
+    font-size: 14px;
+}
+
+.outlet-details p strong {
+    color: #555;
+    font-size: 15px;
+}
+
+.outlet-card a{
+    color:rgb(170, 53, 121);
+    font-size: 15px;
+    display: inline-block;
+    border: 1px solid #9dafac;
+    padding: 5px 5px;
+
+}
+section {
+    padding: 20px;}
+    
+.picnic{
+background-color: #eae9ee;
+}
+.picnic li{
+font-size: 17px;
+}
+.picnic a{
+    display: inline-block;
+    background: #B7CFCD;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid #B7CFCD;
+    transition: all 0.3s ease;
+}
+.picnic a:hover{
+    color: #B7CFCD;
+    background: none;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.input[type="email"] {
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    max-width: 1440px;
+}
+
+.hero img {
+border-radius: 10px;
+padding: 0;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #87ee79;
+    background: rgba(0, 0, 0, 0.75);
+    padding: 80px;
+    border-radius: 15px;
+  
+}
+.hero-text h1{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.hero-text h4{
+    font-size: 18px;
+    
+}
+.promotions,.sustainability{
+    background-color: #fff;
+}
+.promotions li{
+    font-size: 17px;
+}
+.catering{
+    background-color: rgb(228, 243, 255);
+}
+
+/*footer html*/
+
+footer {
+    background-color:#333;
+    color: #fff;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    color: #fff;
+}
+
+.footer-logo {
+    max-width: 500px;
+    color: #fff;
+}
+
+
+
+.footer-logo h2 {
+    margin: 10px 0;
+    color: #fff;
+}
+
+.footer-links {
+    max-width: 300px;
+    color: #fff;
+}
+
+.footer-links h3 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 5px;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-social {
+    max-width: 300px;
+}
+
+.footer-social h3 {
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.footer-social .social-icon {
+    margin-right: 20px;
+    color: #419741;
+    font-size: 30px;
+}
+
+.footer-bottom p{
+    color: #fff;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    
+}
+/* Media Query for max-width: 480px (Mobile) */
+@media (max-width: 480px) {
+    .hero img {
+        height: auto; 
+    }
+    .hero-text {
+        padding: 20px;
+        font-size: 14px;
+    }
+    .outlet-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .outlet-card img {
+        width: 100%;
+        height: auto;
+    }
+    .picnic a {
+        font-size: 12px;
+        padding: 8px 20px;
+    }
+    .form {
+        width: 100%;
+    }
+    .input[type="email"] {
+        width: 100%;
+    }
+}
+
+/* Media Query for max-width: 768px (Tablet) */
+@media (max-width: 768px) {
+    .hero img {
+        height: auto; 
+    }
+    .hero-text {
+        padding: 40px;
+        font-size: 16px;
+    }
+    .outlet-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .outlet-card img {
+        width: 100%;
+        height: auto;
+    }
+    .picnic a {
+        font-size: 14px;
+        padding: 10px 25px;
+    }
+    .form {
+        width: 100%;
+    }
+    .input[type="email"] {
+        width: 100%;
+    }
+}
+
+/* Media Query for max-width: 1024px (Small Desktop/Large Tablet) */
+@media (max-width: 1024px) {
+    .hero img {
+        height: auto; 
+    }
+    .hero-text {
+        padding: 60px;
+        font-size: 18px;
+    }
+    .outlet-card {
+        flex-direction: row;
+        align-items: center;
+    }
+    .outlet-card img {
+        width: 150px;
+        height: 100px;
+    }
+    .picnic a {
+        font-size: 15px;
+        padding: 10px 30px;
+    }
+    .form {
+        width: 90%;
+    }
+    .input[type="email"] {
+        width: 90%;
+    }
+}
+/* Base styles for small screens */
+@media screen and (max-width: 480px) {
+    .logo {
+        font-size: 28px;
+        margin-top: 10px;
+    }
+
+    .nav_list {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #000;
+        position: absolute;
+        top: 70px;
+        left: 0;
+    }
+
+    .nav_item {
+        margin: 0;
+        padding: 1rem 0;
+    }
+
+    .nav_link {
+        font-size: 14px;
+    }
+
+    .toggle_menu, .close_menu {
+        display: block;
+        font-size: 24px;
+        color: #fff;
+    }
+
+    .megamenu {
+        width: 100%;
+        height: auto;
+        top: 3rem;
+    }
+
+    .content {
+        padding: 0.5rem;
+    }
+}
+
+/* Styles for tablets and small desktops */
+@media screen and (max-width: 768px) {
+    .logo {
+        font-size: 32px;
+        margin-top: 15px;
+    }
+
+    .nav_list {
+        display: none; /* Hide the navigation list */
+        flex-direction: column;
+        width: 100%;
+        background-color: #000;
+        position: absolute;
+        top: 70px;
+        left: 0;
+    }
+
+    .nav_item {
+        margin: 0;
+        padding: 1rem 0;
+    }
+
+    .nav_link {
+        font-size: 15px;
+    }
+
+    .toggle_menu, .close_menu {
+        display: block;
+        font-size: 20px;
+        color: #fff;
+    }
+
+    .megamenu {
+        width: 100%;
+        height: auto;
+        top: 3rem;
+    }
+
+    .content {
+        padding: 0.5rem;
+    }
+}
+
+/* Styles for larger tablets and small desktops */
+@media screen and (max-width: 1024px) {
+    .logo {
+        font-size: 36px;
+        margin-top: 15px;
+    }
+
+    .nav_list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .nav_item {
+        margin: 0 1rem;
+        padding: 1rem 0;
+    }
+
+    .nav_link {
+        font-size: 16px;
+    }
+
+    .toggle_menu, .close_menu {
+        display: none;
+    }
+
+    .megamenu {
+        width: 300px;
+        height: auto;
+        top: 5rem;
+    }
+
+    .content {
+        padding: 1rem;
+    }
+}
+/* General adjustments for mobile devices */
+@media (max-width: 480px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links, .footer-social {
+        margin-top: 20px;
+    }
+
+    
+}
+/* Adjustments for tablets or large smartphones */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links, .footer-social {
+        margin-top: 30px;
+    }
+
+    
+}
+/* Adjustments for smaller laptops or tablets */
+@media (max-width: 1024px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-links, .footer-social {
+        margin-top: 20px;
+    }
+
+    
+}
+   </style>
+</head>
+<body>
+      
+    <header>
+        <nav>
+              <div class="logo">ZooParc Adventures</div>
+              <div class="toggle_menu">
+                <i class='bx bxs-grid-alt'></i>
+              </div>
+              <ul class="nav_list">
+                <div class="close_menu">
+                    <i class='bx bx-x'></i>
+                </div>
+                <li class="nav_item "dropdown ><a href="..\html\home.html" class="nav_link dropdown_link">Home <i class='bx bxs-chevron-down dropdown_icon'></i></a>
+                  <div class="megamenu">
+                    <ul class="content">
+                        <li class="megamenu_items header_megamenu">Visit</li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\zoomap.html">zoo map</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\tickects.html">hours and tickects</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\food.html">food and shops</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\visit.html">plan to visit</a>
+                                <p></p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="content">
+                        <li class="megamenu_items header_megamenu">Animals</li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\php\animals.php">Gallery</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\mammals.html">Mammals & fishes</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\reptlies.html">amphibious & reptelious</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\birds.html">birds</a>
+                                <p></p>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="content">
+                        <li class="megamenu_items header_megamenu">Education & Events</li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\php\programs.php">Educational Programs</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\php\events.php">Events</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        
+                    </ul>
+                    <ul class="content">
+                        <li class="megamenu_items header_megamenu"> Support</li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\volunteer.html">Volunteer</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\member.html">Member</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\html\donation.html">Donate</a>
+                                <p></p>
+                            </div>
+                        </li>
+                        <li class="megamenu_item ">
+                            <div class="menu_icon">
+
+                            </div>
+                            <div class="megamenu_links">
+                                <a href="..\php\register.php">Register</a>
+                                <p></p>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                  </div>
+                </li>
+                <li class="nav_item"><a href="..\php\register.php" class="nav_link ">Register</a></li>
+                <li class="nav_item"><a href="..\html\donation.html" class="nav_link">Donate</a></li>
+                <li class="nav_item"><a href="..\php\login.php" class="nav_link">Login</a></li>
+                <li class="nav_item"><a href="..\html\visit.html" class="nav_link">Plan to visit</a></li>
+              </ul>
+        </nav>
+    </header>  
+        
+        
+    <section class="hero">
+        <img src="..\img\foodtop.png" alt="ZooParc Tickets" width="100%" height="500">
+        <div class="hero-text">
+            <h1>Explore Our Food Outlets</h1>
+        <h4>Choose from several dining options & bring your own picnic!</h4>
+        </div>
+        
+    </section>
+
+    <section class="outlets">
+        <h2>Our Food Outlets</h2>
+
+        <!-- Example Outlet -->
+        <div class="outlet-card">
+            <img src="..\img\food1.png"  alt=" Elephant's Delight">
+            <div class="outlet-details">
+                <h3>Elephant's Delight</h3>
+                <p><strong>Location:</strong>  Near the Elephant Enclosure</p>
+                <p><strong>Operating Hours:</strong>  10:00 AM - 6:00 PM</p>
+                <p><strong>Menu:</strong> Sri Lankan rice and curry, fresh fruit smoothies, elephant-shaped cookies.</p>
+                <p><strong>Special Dietary Needs:</strong>Vegetarian options, gluten-free dishes available upon request</p>
+                <a href="..\img\foodmenu1.png">view more</a>
+            </div>
+        </div>
+
+        <div class="outlet-card">
+            <img src="..\img\food2.png"  alt=" Lion's Roar Grill">
+            <div class="outlet-details">
+                <h3>Lion's Roar Grill</h3>
+                <p><strong>Location:</strong>  Adjacent to the Lion's Den</p>
+                <p><strong>Operating Hours:</strong>  11:00 AM - 7:00 PM</p>
+                <p><strong>Menu:</strong> Grilled meats, BBQ skewers, savory lion-shaped bread rolls.</p>
+                <p><strong>Special Dietary Needs:</strong>Halal options, low-sodium choices.</p>
+                <a href="..\img\foodmenu2.png">view more</a>
+            </div>
+        </div>
+        <div class="outlet-card">
+            <img src="..\img\food3.png"  alt=" Giraffe's Gusto">
+            <div class="outlet-details">
+                <h3>Giraffe's Gusto</h3>
+                <p><strong>Location:</strong>   Near the Giraffe Tower</p>
+                <p><strong>Operating Hours:</strong>   9:30 AM - 5:00 PM</p>
+                <p><strong>Menu:</strong> Salads, sandwiches, tall fruit parfaits, giraffe-themed cupcakes.</p>
+                <p><strong>Special Dietary Needs:</strong>Vegan options, nut-free dishes.</p>
+                <a href="..\img\foodmenu3.png">view more</a>
+            </div>
+        </div>
+
+        <div class="outlet-card">
+            <img src="..\img\food4.png"  alt=" Panda's Pantry">
+            <div class="outlet-details">
+                <h3>Panda's Pantry</h3>
+                <p><strong>Location:</strong>  Close to the Panda zone</p>
+                <p><strong>Operating Hours:</strong>  10:30 AM - 6:30 PM</p>
+                <p><strong>Menu:</strong> Asian-inspired dishes, bao buns, panda-shaped rice balls.</p>
+                <p><strong>Special Dietary Needs:</strong>Dairy-free options, vegetarian.</p>
+                <a href="..\img\foodmenu4.png">view more</a>
+            </div>
+        </div>
+
+        <div class="outlet-card">
+            <img src="..\img\food5.png"  alt=" Kangaroo Cafe">
+            <div class="outlet-details">
+                <h3>Kangaroo Cafe</h3>
+                <p><strong>Location:</strong> Near the Kangaroo Enclosure</p>
+                <p><strong>Operating Hours:</strong>  10:00 AM - 6:00 PM</p>
+                <p><strong>Menu:</strong> Soft drinks,coffee flavors</p>
+                <p><strong>Special Dietary Needs:</strong>sugur-free drinks</p>
+                <a href="..\img\foodmenu5.png">view more</a>
+            </div>
+        </div>
+
+        <div class="outlet-card">
+            <img src="..\img\food6.png"  alt=" Penguin's Platter">
+            <div class="outlet-details">
+                <h3>Penguin's Platter</h3>
+                <p><strong>Location:</strong> By the Penguin Pool</p>
+                <p><strong>Operating Hours:</strong>  11:00 AM - 5:00 PM</p>
+                <p><strong>Menu:</strong> Fish and chips, penguin-shaped ice creams, seafood snacks.</p>
+                <p><strong>Special Dietary Needs:</strong>Low-fat options, allergy-friendly dishes.</p>
+                <a href="..\img\foodmenu6.png">view more</a>
+            </div>
+        </div>
+        <div class="outlet-card">
+            <img src="..\img\food7.png"  alt=" Safari Snack Shack">
+            <div class="outlet-details">
+                <h3>Safari Snack Shack</h3>
+                <p><strong>Location:</strong>  Central Zoo Area</p>
+                <p><strong>Operating Hours:</strong>  9:00 AM - 7:00 PM</p>
+                <p><strong>Menu:</strong> Various snacks like animal-shaped pretzels, popcorn, smoothies.</p>
+                <p><strong>Special Dietary Needs:</strong>Nut-free snacks, vegetarian options.</p>
+                <a href="..\img\foodmenu7.png">view more</a>
+            </div>
+        </div>
+        
+    
+
+
+    </section>
+
+    <section class="picnic">
+        <h2>Bringing Your Own Picnic</h2>
+        <p>Enjoy your meal at our designated picnic spots!</p>
+        <ul>
+            <li>Picnic Area 1: Near the Elephant Habitat</li>
+            <li>Picnic Area 2: By the Children's Play Area</li>
+        </ul>
+        <p>Guidelines: Please dispose of waste properly and avoid feeding the animals.</p>
+        <a href="">Learn More</a>
+    
+    </section>
+
+    
+
+    <section class="promotions">
+        <h2>Special Offers & Promotions</h2>
+        <p>Check out our current deals:</p>
+        <ul>
+            <li>10% off all meals at Rainforest Grill every Wednesday.</li>
+            <li>Buy one, get one free on all ice creams at Arctic Snack Stand.</li>
+        </ul>
+    </section>
+
+
+    <section class="sustainability">
+        <h2>Sustainability Initiatives</h2>
+        <p> We are committed to eco-friendly practices. All packaging is biodegradable, and our ingredients are sourced locally where possible.</p>
+    </section>
+
+    <section class="catering">
+        <h2>Event Catering</h2>
+        <p>Interested in catering for your event at ZooParc? Contact us to arrange a tailored menu for your guests.</p>
+        <p>Email: catering@zooparc.com | Phone: 011 2485678</p>
+    </section>
+
+   
+    <section id="contact">
+        <h2>Contact Information</h2>
+        <p>Have any questions? Feel free to contact us:</p>
+        <p>Email: info@zooparc.com | Phone: 0113435434</p>
+        <p>Follow us on social media for updates:</p>
+        <ul>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Twitter</a></li>
+        </ul>
+    </section>
+
+    
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+               
+                <h2>  <i class="fas fa-paw"> ZooParc Adventures</i></h2>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Access</h3>
+                <ul>
+                    <li><a href="..\php\animals.php">Animals</a></li>
+                    <li><a href="..\html\volunteer.html">Volunteer</a></li>
+                    <li><a href="..\php\events.php">Events</a></li>
+                    <li><a href="..\html\food.html">Food Outlets</a></li>
+                    <li><a href="..\html\donation.html">Donations</a></li>
+                    <li><a href="..\html\visit.html">Visit</a></li>
+                    <li><a href="..\php\register.php">Register</a></li>
+                    <li><a href="..\php\programs.php">Educational programs</a></li>
+                    <li><a href="..\html\volunteer.html">Our Online Community</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#follow" target="_blank" class="social-icon">
+                    <i class='bx bxl-facebook-square'></i>
+                </a>
+                <a href="#follow" target="_blank" class="social-icon">
+                    <i class='bx bxl-twitter'></i>
+                </a>
+                <a href="#follow" target="_blank" class="social-icon">
+                    <i class='bx bxl-instagram-alt'></i>
+                </a>
+                <a href="#follow" target="_blank" class="social-icon">
+                    <i class='bx bxl-linkedin-square'></i>
+                </a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 ZooParc Adventures. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
